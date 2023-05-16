@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        #updatePlayerForm {
+            background-color: #fff;
+            padding: 100px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 500px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 8px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+<h1>Update Player</h1>
+
+<div id="updatePlayerForm">
+    <form>
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="identity">Identity:</label>
+        <input type="text" id="identity" name="identity" required>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <button type="submit">Update</button>
+    </form>
+</div>
+
+<script>
+    // JavaScript code
+
+    // Retrieve player details from backend or local storage
+    var player = getPlayerDetails(); // Replace this with your actual implementation
+
+    // Set initial values in the form fields
+    document.getElementById("fullName").value = player.fullName;
+    document.getElementById("identity").value = player.identity;
+    document.getElementById("address").value = player.address;
+    document.getElementById("email").value = player.email;
+
+    // Add event listener to the form submission
+    document.querySelector("form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get updated values from the form fields
+        var updatedPlayer = {
+            fullName: document.getElementById("fullName").value,
+            identity: document.getElementById("identity").value,
+            address: document.getElementById("address").value,
+            email: document.getElementById("email").value
+        };
+
+        // Perform the update action
+        updatePlayer(updatedPlayer);
+    });
+
+    // Function to update the player details
+    function updatePlayer(playerData) {
+        // Add your update logic here
+        // For example, you can make an API request to update the player details
+    }
+</script>
+</body>
+</html>
